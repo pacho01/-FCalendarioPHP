@@ -37,6 +37,6 @@ if ($conexion->connect_errno) {
 }
 
 // Url donde estara el proyecto, debe terminar con un "/" al final
-$base_url="http://localhost/Calendario2/";
+$base_url="http://localhost/FcalendarioPHP/";
 
 ?>
