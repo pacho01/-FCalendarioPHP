@@ -1,6 +1,5 @@
 
 <?php
 $nombre="Pacho";
-echo $nombre 
+echo $nombre . " probando la edicion y subida a git."
 ?>
-
