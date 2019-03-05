@@ -20,7 +20,7 @@
 **/
 
 // Definimos nuestra zona horaria
-date_default_timezone_set("America/Santiago");
+date_default_timezone_set("Europe/Berlin");
 
 // incluimos el archivo de funciones
 include 'funciones.php';
