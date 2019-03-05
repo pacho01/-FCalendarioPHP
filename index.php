@@ -1,4 +1,6 @@
+
 <?php
-$nombre="Pacho"
-echo $nombre
->
+$nombre="Pacho";
+echo $nombre 
+?>
+
