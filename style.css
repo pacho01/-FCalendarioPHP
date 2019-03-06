@@ -1,0 +1,59 @@
+body{margin:0;font-family:Lato;}
+            ul,li{list-style-type:none;margin:0;padding:0;}
+            .calendar{padding:30px;}
+            .day, .dia_blanco{
+                background:#ecf0f1;
+               /* border-bottom:2px solid #bdc3c7; */
+                box-shadow : 2px 2px 2px rgba(31, 27, 24, 0.4);
+                float:left;margin:3px;
+                position:relative;
+                height:50px;
+                width:50px;
+                }
+            .dia_blanco{
+                visibility: hidden;
+            }
+            .day.marked{
+                background:#3498db;
+                border-color:#2980b9;
+            }
+            .day .day-number{
+                color:#7f8c8d;
+                left:5px;
+                position:absolute;
+                top:5px;
+            }
+            .day.marked .day-number{
+                color:white;
+            }
+            .day .events{
+                color:white;margin:29px 7px 7px;
+                /*height:50px;*/
+                overflow-x:hidden;
+                overflow-y:hidden;
+            }
+            /*.day.marked .events{
+                overflow-y:scroll;
+            }*/
+            .day .events h5{
+                margin:0 0 5px;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                width:100%;
+            }
+            .day .events strong,.day .events span{
+                display:block;
+                font-size:11px;
+            }
+            .mes{
+                background: rgb(245, 216, 183);
+                box-shadow : 2px 2px 2px rgba(31, 27, 24, 0.4);
+                float:left;margin:10px;
+                position:relative;
+                height:430px;
+                width:400px;
+                padding-left: 5px;
+            }
+            
+            
