@@ -92,8 +92,9 @@
 
                 echo '
                 
-                <div class="day' . ($marked ? ' marked' : '') . '">
-                    <strong class="day-number">' . $day . '</strong>';
+                <div  onclick="llama_dia(' . $mes . ',' . $day .')" class="day' . ($marked ? ' marked' : '') . '">
+                    <strong class="day-number">' . $day . '</strong>
+                    <div class="turno" id="id' . $mes . '-' . $day . '" > t </div>';
                     /*echo '<div class="events"><ul>';
 
                         foreach($events_list as $event)
@@ -119,5 +120,21 @@
         }
         ?>
     </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        function llama_dia(mes,dia){
+            var id = 'id' + mes + '-' + dia;
+            var nuevo_valor = prompt('nuevo valor');
+            $.post('cambio_dato.php',{
+                "mes":mes,
+                "dia":dia,
+                "nuevo_valor":nuevo_valor
+            },function(datos){
+                
+               $('#' + id).html('<p>'+datos+'</p>');
+            });
+
+        }
+    </script>
     </body>
     </html>

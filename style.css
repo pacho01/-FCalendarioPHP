@@ -82,5 +82,12 @@ body{margin:0;font-family:Lato;}
                 width:400px;
                 padding-left: 5px;
             }
+            .turno{
+                background: peru;
+                color: aqua;
+            margin-top: 25px;
+            height: 25px;
+
+            }
             
             
