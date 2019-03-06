@@ -55,6 +55,7 @@
         $month_days = date('j', strtotime("last day of"));
 
         echo '<h1> Año de nuestro Señor ' . date('Y') . '</h1>';
+        
         for($mes=1; $mes<=12; $mes++){
 
             //Datos de configuracion el mes
@@ -64,6 +65,13 @@
 
             echo '<div class="mes">';
             echo '<h2>' . $month_txt .'</h2>';
+            echo '<div class="dia_nombre">Lun</div>';
+            echo '<div class="dia_nombre">Mar</div>';
+            echo '<div class="dia_nombre">Mie</div>';
+            echo '<div class="dia_nombre">Jue</div>';
+            echo '<div class="dia_nombre">Vie</div>';
+            echo '<div class="dia_nombre_finde">Sab</div>';
+            echo '<div class="dia_nombre_finde">Dom</div>';
             for($day_free=1; $day_free<$month_ini; $day_free++){
                 echo '<div class="dia_blanco"></div>';
             }
@@ -71,7 +79,7 @@
                 $marked = false;
                 $events_list = array();
 
-                foreach($events as $event_day => $event)
+                /*foreach($events as $event_day => $event)
                 {
                     // si el dia del evento coincide lo marcamos y guardamos la informacion
                     if($event_day == $day)
@@ -80,13 +88,13 @@
                         $events_list = $event;
                         break;
                     }
-                }
+                }*/
 
                 echo '
                 
                 <div class="day' . ($marked ? ' marked' : '') . '">
-                    <strong class="day-number">' . $day . '</strong>
-                    <div class="events"><ul>';
+                    <strong class="day-number">' . $day . '</strong>';
+                    /*echo '<div class="events"><ul>';
 
                         foreach($events_list as $event)
                         {
@@ -104,8 +112,8 @@
                             </li>';
                         }
 
-                    echo '</ul></div>
-                </div>';
+                    echo '</ul></div>';*/
+                echo '</div>';
             }
             echo '</div>';
         }
