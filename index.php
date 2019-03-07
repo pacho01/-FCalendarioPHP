@@ -33,12 +33,10 @@
             
             
             if(mysqli_num_rows($result)>0):
-                while($consulta=mysqli_fetch_array($result)){
-                    echo 'hola ' . $consulta['nombre'];
-                }
+                $consulta=mysqli_fetch_array($result);
+                echo 'hola ' . $consulta['nombre'];
             else:
                 echo 'No has acertado';
-                
             endif;
         endif;
 
