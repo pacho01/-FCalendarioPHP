@@ -1,6 +1,7 @@
 <?php 
 if($_POST):
-    require("conexion.php");
+    require("functions/conexion.php");
+    require("functions/funciones.php");
     $userid=utf8_decode($_POST["userid"]);
     $pass=utf8_decode($_POST["pass"]);
 
@@ -12,23 +13,12 @@ if($_POST):
         $consulta=mysqli_fetch_array($result);
         echo 'hola ' . $consulta['nombre'];
     else:
-        echo 'No has acertado';
+        //echo 'No has acertado';
+        //sleep (5);
+        //header('Location:tres.html');
+        echo file_get_contents('dos.html');
     endif;
 else:
-    header('Location: /FCalendarioPHP/dos.html');
+    //header('Location:dos.html');
+    echo file_get_contents('dos.html');
 endif;
-
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-?>

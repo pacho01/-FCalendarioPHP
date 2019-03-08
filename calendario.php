@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Calendario</title>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <link rel='stylesheet' href='style.css'>
+        <link rel='stylesheet' href='css/style.css'>
     </head>
     <body>
     <div class="calendar">
@@ -114,20 +114,12 @@
         }
         ?>
     </div>
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         function llama_dia(mes,dia){
             var id = 'id' + mes + '-' + dia;
             var nuevo_valor = prompt('nuevo valor');
-            $.post('cambio_dato.php',{
-                "mes":mes,
-                "dia":dia,
-                "nuevo_valor":nuevo_valor
-            },function(datos){
-                
-               $('#' + id).html('<p>'+datos+'</p>');
-            });
-
+            $.post('cambio_dato.php',{"mes":mes,"dia":dia,"nuevo_valor":nuevo_valor},function(datos){$('#' + id).html('<p>'+datos+'</p>');});
         }
     </script>
     </body>
