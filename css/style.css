@@ -36,6 +36,7 @@ ul,li{list-style-type:none;margin:0;padding:0;}
     position:relative;
     height:20px;
     width:50px;
+    border: 3px;
     font-size:13px;
     text-align: center;
     font-weight: bold;

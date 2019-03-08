@@ -9,33 +9,24 @@
     <body>
     <div class="calendar">
     <?php
+        session_start();
+        $userid = $_SESSION['sesion_user'];
+        
         require("functions/conexion.php");
-        $userid = 'admin'; //$_SESSION["newsession"];
+        
         $result=$mysqli->query("SELECT * FROM usuarios WHERE user_id = '$userid'");
-
-        if( !$result ):
-            die( $mysqli->error );
-        endif;
-        // Incializamos un array $events para almacenar los eventos
-        //$user = array();
 
         while($row = $result->fetch_assoc())
         {
             $user_nombre = $row['nombre'];
-            //$end_date = new DateTime($row['fecha_fin']);
-            //$day = $start_date->format('j');
-
-            //$events[$day][] = array(
-            //    'start_hour' => $start_date->format('G:i a'),
-            //    'end_hour' => $end_date->format('G:i a'),
-            //    'team_code' => $row['cod_equipo'],
-            //    'description' => $row['descripcion']
-            //);
+            $bol_admin=$row['admin']
         }
 
-        //$datetime = new DateTime();*/
 
-        // mes en texto
+
+
+
+         // mes en texto
         $txt_months = array(
             'Enero', 'Febrero', 'Marzo',
             'Abril', 'Mayo', 'Junio',
@@ -43,11 +34,10 @@
             'Octubre', 'Noviembre', 'Diciembre'
         );
 
-        /*$month_txt = $txt_months[$datetime->format('n')-1];*/
-
         // ultimo dia del mes
         $month_days = date('j', strtotime("last day of"));
-
+        
+        //echo '<h1> Año de nuestro Señor ' . date('Y') . '     HOLA: ' . $userid . '</h1>';
         echo '<h1> Año de nuestro Señor ' . date('Y') . '     HOLA: ' . $user_nombre . '</h1>';
         echo '<button class="button button2">Shadow Button</button>';
         
