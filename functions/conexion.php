@@ -6,4 +6,3 @@
         {
        	     die( $mysqli->mysqli_connect_error() );
         }
-?>

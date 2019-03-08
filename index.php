@@ -1,49 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acceso</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <link rel='stylesheet' href='css/style.css'>
+<?php 
+session_start();
+if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
+    //relacionamos paginas requeridas
+    require("functions/conexion.php");
+    require("functions/funciones.php");
     
-</head>
-<body>
-    <form action="index.php" method="post">
-        <div class="calendar">
-            <div class="formulario">
-                <h2>INICIO SESION</h2>
-                <p><label for="userid">User ID</label>
-                <input name="userid" id="userid" required placeholder="user ID"></p>
-                <p><label for="pass">Password</label>
-                <input name="pass" id="pass" type="password" required placeholder="password"></p>
-                <button class="button button1">Entrar</button>
-            </div>
-        </div>
+    $userid=utf8_decode($_POST["userid"]);
+    $pass=utf8_decode($_POST["pass"]);
+    $result = $mysqli->query("SELECT  nombre FROM usuarios WHERE user_id = '$userid' AND pass = '$pass'" );
+     
+    if(mysqli_num_rows($result)>0):
+        //$consulta=mysqli_fetch_array($result);
+        
+        
+        /*session is started if you don't write this line can't use $_Session  global variable*/
+        $_SESSION["newsession"]=$userid;
 
-    <?php
-        if($_POST):
-            require("conexion.php");
-            $userid=utf8_decode($_POST["userid"]);
-            $pass=utf8_decode($_POST["pass"]);
+        //echo file_get_contents('calendario.php');
+        header('Location:calendario.php');
+    else:
+        header('Location:sesion_error.html');    
+    endif;
 
-            $result = $mysqli->query("SELECT nombre, admin FROM usuarios WHERE user_id = '$userid' AND pass = '$pass'" );
-            
-            
-            
-            if(mysqli_num_rows($result)>0):
-                $consulta=mysqli_fetch_array($result);
-                echo 'hola ' . $consulta['nombre'];
-            else:
-                echo 'No has acertado';
-            endif;
-        endif;
-
-
-    ?>
-
-
-    </form>
-</body>
-</html>
+else:   //Si no existen datos abrimos la pagina de inicio de sesion.
+    echo file_get_contents('start_sesion.html');
+endif;
+?>

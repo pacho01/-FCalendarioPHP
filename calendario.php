@@ -9,30 +9,31 @@
     <body>
     <div class="calendar">
     <?php
-        require("conexion.php");
-        $result = $mysqli->query('SELECT * FROM calendar_events');
+        require("functions/conexion.php");
+        $userid = 'admin'; //$_SESSION["newsession"];
+        $result=$mysqli->query("SELECT * FROM usuarios WHERE user_id = '$userid'");
 
-        if( !$result )
+        if( !$result ):
             die( $mysqli->error );
-        
+        endif;
         // Incializamos un array $events para almacenar los eventos
-        $events = array();
+        //$user = array();
 
         while($row = $result->fetch_assoc())
         {
-            $start_date = new DateTime($row['fecha_inicio']);
-            $end_date = new DateTime($row['fecha_fin']);
-            $day = $start_date->format('j');
+            $user_nombre = $row['nombre'];
+            //$end_date = new DateTime($row['fecha_fin']);
+            //$day = $start_date->format('j');
 
-            $events[$day][] = array(
-                'start_hour' => $start_date->format('G:i a'),
-                'end_hour' => $end_date->format('G:i a'),
-                'team_code' => $row['cod_equipo'],
-                'description' => $row['descripcion']
-            );
+            //$events[$day][] = array(
+            //    'start_hour' => $start_date->format('G:i a'),
+            //    'end_hour' => $end_date->format('G:i a'),
+            //    'team_code' => $row['cod_equipo'],
+            //    'description' => $row['descripcion']
+            //);
         }
 
-        $datetime = new DateTime();
+        //$datetime = new DateTime();*/
 
         // mes en texto
         $txt_months = array(
@@ -47,7 +48,7 @@
         // ultimo dia del mes
         $month_days = date('j', strtotime("last day of"));
 
-        echo '<h1> Año de nuestro Señor ' . date('Y') . '</h1>';
+        echo '<h1> Año de nuestro Señor ' . date('Y') . '     HOLA: ' . $user_nombre . '</h1>';
         echo '<button class="button button2">Shadow Button</button>';
         
         for($mes=1; $mes<=12; $mes++){
@@ -71,7 +72,7 @@
             }
             foreach(range(1, $month_days) as $day){
                 $marked = false;
-                $events_list = array();
+                //$events_list = array();
 
                 /*foreach($events as $event_day => $event)
                 {
@@ -88,7 +89,7 @@
                 
                 <div  onclick="llama_dia(' . $mes . ',' . $day .')" class="day' . ($marked ? ' marked' : '') . '">
                     <strong class="day-number">' . $day . '</strong>
-                    <div class="turno" id="id' . $mes . '-' . $day . '" > t </div>';
+                    <div class="turno" id="id' . $mes . '-' . $day . '" > M </div>';
                     /*echo '<div class="events"><ul>';
 
                         foreach($events_list as $event)
