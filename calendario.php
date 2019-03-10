@@ -22,10 +22,6 @@
             $bol_admin=$row['admin']
         }
 
-
-
-
-
          // mes en texto
         $txt_months = array(
             'Enero', 'Febrero', 'Marzo',
@@ -46,7 +42,7 @@
             //Datos de configuracion el mes
             $month_txt = $txt_months[$mes-1]; //Nombre del MES
             $month_days = date('t', strtotime("01-$mes-" . date('Y'))); // Numero de dias en el mes
-            $month_ini=date('N', strtotime("01-$mes-" . date('Y'))); // Offset inicio de dia 1 en la semana
+            $Dia_semana_inicio_mes=date('N', strtotime("01-$mes-" . date('Y'))); // Offset inicio de dia 1 en la semana
 
             echo '<div class="mes">';
             echo '<h2>' . $month_txt .'</h2>';
@@ -57,7 +53,7 @@
             echo '<div class="dia_nombre">Vie</div>';
             echo '<div class="dia_nombre_finde">Sab</div>';
             echo '<div class="dia_nombre_finde">Dom</div>';
-            for($day_free=1; $day_free<$month_ini; $day_free++){
+            for($day_free=1; $day_free<$Dia_semana_inicio_mes; $day_free++){
                 echo '<div class="dia_blanco"></div>';
             }
             foreach(range(1, $month_days) as $day){
