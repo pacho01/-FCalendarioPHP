@@ -17,15 +17,15 @@
             require("functions/conexion.php");
             $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios " );
             $userid = $_SESSION['sesion_user'];
-            $admmin=$_SESSION['admin']
+            $admmin=$_SESSION['admin'];
             if(mysqli_num_rows($result)>0):
                 echo "<select name='menu'>";
             
                 while($row = $result->fetch_assoc())
                 {
                     $menu_nombre = $row['nombre'];
-                    $menu_admin=$row['admin']
-                    $menu_userid=$row['user_id']
+                    $menu_admin=$row['admin'];
+                    $menu_userid=$row['user_id'];
                     echo "<option value='" . $menu_userid . "'>" . $menu_nombre . "</option>";
                 }
                 echo "</select>";

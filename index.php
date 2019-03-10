@@ -13,18 +13,18 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
         while($row = $result->fetch_assoc())
         {
             $user_nombre = $row['nombre'];
-            $bol_admin=$row['admin']
+            $bol_admin = $row['admin'];
         }
 
         /*session is started if you don't write this line can't use $_Session  global variable*/
         $_SESSION['sesion_user']=$userid;
-        $_SESSION['admin']=$bol_admin
-        $_SESSION['view_user']=$userid
+        $_SESSION['admin']=$bol_admin;
+        $_SESSION['view_user']=$userid;
         if($bol_admin=1):
             header('Location:adminpanel.php');
         else:    
             header('Location:calendario.php');
-        endif:
+        endif;
     else:
         header('Location:sesion_error.html');    
     endif;

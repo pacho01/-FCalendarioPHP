@@ -19,7 +19,7 @@
         while($row = $result->fetch_assoc())
         {
             $user_nombre = $row['nombre'];
-            $bol_admin=$row['admin']
+            $bol_admin=$row['admin'];
         }
 
          // mes en texto
