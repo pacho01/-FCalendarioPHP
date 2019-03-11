@@ -21,6 +21,16 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
         $_SESSION['admin']=$bol_admin;
         $_SESSION['view_user']=$userid;
         if($bol_admin=1):
+
+            //ob_implicit_flush(true);
+            //$buffer = str_repeat(" ", 4096);
+            //echo "see this immediately.<br>";
+            //echo $buffer;
+            //ob_flush();
+            //sleep(5);
+            //echo "some time has passed";
+
+
             header('Location:adminpanel.php');
         else:    
             header('Location:calendario.php');
