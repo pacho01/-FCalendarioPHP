@@ -17,9 +17,9 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
         }
 
         /*session is started if you don't write this line can't use $_Session  global variable*/
-        $_SESSION['sesion_user']=$userid;
+        $_SESSION['user_sesion']=$userid;
         $_SESSION['admin']=$bol_admin;
-        $_SESSION['view_user']=$userid;
+        $_SESSION['user_select']=$userid;
         if($bol_admin=1):
 
             //ob_implicit_flush(true);

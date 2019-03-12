@@ -7,30 +7,43 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<form action="calendario.php" action="Post">
+<form action="calendario.php" method="Post">
     <div class="Calendar">
         <div class="formulario">
             <h2>Selecciona Usuario</h2>
             <?php
             session_start();
-            
             require("functions/conexion.php");
-            $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios " );
-            $userid = $_SESSION['sesion_user'];
-            $admmin=$_SESSION['admin'];
-            if(mysqli_num_rows($result)>0):
-                echo "<select name='menu'>";
+            $userid = $_SESSION['user_sesion'];
+            $admin=$_SESSION['admin'];
+            $Userview=$_SESSION['user_select']
+
+            if ($_POST){
+
+            }
+            else {
+                # code...
+                $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios " );
             
-                while($row = $result->fetch_assoc())
-                {
-                    $menu_nombre = $row['nombre'];
-                    $menu_admin=$row['admin'];
-                    $menu_userid=$row['user_id'];
-                    echo "<option value='" . $menu_userid . "'>" . $menu_nombre . "</option>";
-                }
-                echo "</select>";
+                if(mysqli_num_rows($result)>0):
+                    
+                    echo "<select name='menu'>";
                 
-            endif;
+                    while($row = $result->fetch_assoc())
+                    {
+                        $menu_nombre = $row['nombre'];
+                        $menu_admin=$row['admin'];
+                        $menu_userid=$row['user_id'];
+                        echo "<option value='" . $menu_userid . "'>" . $menu_nombre . "</option>";
+                    }
+                    echo "</select>";
+                    
+                endif;
+            }
+            
+            
+            
+            
              
             ?>
              <input type="submit" value="Enviar"> 
