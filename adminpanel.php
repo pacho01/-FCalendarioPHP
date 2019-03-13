@@ -19,7 +19,7 @@
             $Userview=$_SESSION['user_select'];
 
             if ($_POST){
-echo $_POST['nombrecito'];
+            echo $_POST['nombrecito'];
             }
             else {
                 # code...
@@ -27,7 +27,11 @@ echo $_POST['nombrecito'];
 
                 if(mysqli_num_rows($result)>0):
 
-                    echo "<P><label for='menu'>Usuario</label> <select class='ficha_bordes' name='menu'  onchange = 'this.form.submit()'>";
+                    echo "
+                    <P>
+                    <label for='menu'>Usuario</label> 
+                    <select onchange = this.form.submit() class='ficha_bordes' name='menu'>
+                    ";
 
                     while($row = $result->fetch_assoc())
                     {
