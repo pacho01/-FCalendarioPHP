@@ -19,16 +19,16 @@
             $Userview=$_SESSION['user_select'];
 
             if ($_POST){
-
+echo $_POST['nombrecito'];
             }
             else {
                 # code...
                 $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios" );
-            
+
                 if(mysqli_num_rows($result)>0):
-                    
-                    echo "<P><label for='menu'>Usuario</label> <select class='ficha_bordes' name='menu'>";
-                
+
+                    echo "<P><label for='menu'>Usuario</label> <select class='ficha_bordes' name='menu'  onchange = 'this.form.submit()'>";
+
                     while($row = $result->fetch_assoc())
                     {
                         $menu_nombre = $row['nombre'];
@@ -37,14 +37,14 @@
                         echo "<option value='" . $menu_userid . "'>" . $menu_nombre . "</option>";
                     }
                     echo "</select></P>";
-                    
+
                 endif;
             }
-            
-            
-            
-            
-             
+
+
+
+
+
             ?>
             <p><label for='nombrecito'>Dato extra</label><input class='ficha_bordes' type="text" name="nombrecito" value="Nombre"></p>
             <p><input type="submit" value="Enviar"> </p>
