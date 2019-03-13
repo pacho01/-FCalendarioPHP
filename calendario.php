@@ -10,7 +10,7 @@
     <div class="calendar">
     <?php
         session_start();
-        $userid = $_SESSION['sesion_user'];
+        $userid = $_SESSION['user_select'];
         
         require("functions/conexion.php");
         

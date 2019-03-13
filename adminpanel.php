@@ -8,26 +8,26 @@
 </head>
 <body>
 <form action="calendario.php" method="Post">
-    <div class="Calendar">
-        <div class="formulario">
+    <div class="calendar">
+        <div class="ficha">
             <h2>Selecciona Usuario</h2>
             <?php
             session_start();
             require("functions/conexion.php");
             $userid = $_SESSION['user_sesion'];
             $admin=$_SESSION['admin'];
-            $Userview=$_SESSION['user_select']
+            $Userview=$_SESSION['user_select'];
 
             if ($_POST){
 
             }
             else {
                 # code...
-                $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios " );
+                $result = $mysqli->query("SELECT  nombre, user_id, admin FROM usuarios" );
             
                 if(mysqli_num_rows($result)>0):
                     
-                    echo "<select name='menu'>";
+                    echo "<P><label for='menu'>Usuario</label> <select class='ficha_bordes' name='menu'>";
                 
                     while($row = $result->fetch_assoc())
                     {
@@ -36,7 +36,7 @@
                         $menu_userid=$row['user_id'];
                         echo "<option value='" . $menu_userid . "'>" . $menu_nombre . "</option>";
                     }
-                    echo "</select>";
+                    echo "</select></P>";
                     
                 endif;
             }
@@ -46,7 +46,8 @@
             
              
             ?>
-             <input type="submit" value="Enviar"> 
+            <p><label for='nombrecito'>Dato extra</label><input class='ficha_bordes' type="text" name="nombrecito" value="Nombre"></p>
+            <p><input type="submit" value="Enviar"> </p>
         </div>
     </div>
 

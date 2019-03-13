@@ -4,9 +4,11 @@
 body{margin:0;}
 ul,li{list-style-type:none;margin:0;padding:0;}
 .calendar{
+    background-color: lightblue;
     padding:30px;
-    width: 90%;
-    margin: 10px auto;
+    width: 100%;
+    height: 100vh;
+    margin: 0px auto;
 }
 .day, .dia_blanco{
     background:#ecf0f1;
@@ -156,10 +158,61 @@ ul,li{list-style-type:none;margin:0;padding:0;}
 }
 
 
-.formulario h2{
+.formulario h2, .ficha h2{
     text-align: center;
 }
 
+.ficha{
+    
+    background-color: rgb(209, 209, 209);
+    border-radius: 4px;
+    border: 2px solid rgb(99, 99, 99);
+    color: rgb(71, 67, 71);
+    padding: 15px 32px;
+    position: relative;
+    /*text-align: center;*/
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    height: 300px;
+    width: 400px;
+    margin: 10px auto;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.ficha_bordes{
+    position: absolute;
+    right: 50px;
+    background-color: rgba(255, 255, 255, 0);
+  
+  border-top-style: none;
+   
+  border-right-style: none;
+ 
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(75, 150, 131);
+  
+  border-left-style: none;
+  
+    
+}
+.ficha_bordes:focus{
+
+    border-top-style: none;
+    
+    
+    border-right-style: none;
+   
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(0, 0, 255);
+    
+    border-left-style: none;
+    
+
+}
 
 /*Extra************************************/
 /*para borrar*/
