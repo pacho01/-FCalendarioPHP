@@ -45,10 +45,6 @@
                 endif;
             }
 
-
-
-
-
             ?>
             <p><label for='nombrecito'>Dato extra</label><input class='ficha_bordes' type="text" name="nombrecito" value="Nombre"></p>
             <p><input type="submit" value="Enviar"> </p>
