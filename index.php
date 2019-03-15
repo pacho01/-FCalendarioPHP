@@ -12,34 +12,28 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
     if(mysqli_num_rows($result)>0):
         while($row = $result->fetch_assoc())
         {
-            $user_nombre = $row['nombre'];
-            $bol_admin = $row['admin'];
+        $user_nombre = $row['nombre'];
+           $bol_admin = $row['admin'];
         }
 
         /*session is started if you don't write this line can't use $_Session  global variable*/
         $_SESSION['user_sesion']=$userid;
         $_SESSION['admin']=$bol_admin;
         $_SESSION['user_select']=$userid;
-        if($bol_admin=1):
-
-            //ob_implicit_flush(true);
-            //$buffer = str_repeat(" ", 4096);
-            //echo "see this immediately.<br>";
-            //echo $buffer;
-            //ob_flush();
-            //sleep(5);
-            //echo "some time has passed";
-
-
+        
+        if($bol_admin){
             header('Location:adminpanel.php');
-        else:    
+        }
+        else{    
             header('Location:calendario.php');
-        endif;
+        }
+    
     else:
         header('Location:sesion_error.html');    
     endif;
 
 else:   //Si no existen datos abrimos la pagina de inicio de sesion.
-    echo file_get_contents('start_sesion.html');
+    //echo file_get_contents('start_sesion.html');
+    header('Location:start_sesion.html');
 endif;
 ?>
