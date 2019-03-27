@@ -21,12 +21,12 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
         $_SESSION['admin']=$bol_admin;
         $_SESSION['user_select']=$userid;
         
-        if($bol_admin){
+        //if($bol_admin){
             header('Location:adminpanel.php');
-        }
-        else{    
-            header('Location:calendario.php');
-        }
+        //}
+        //else{    
+            //header('Location:calendario.php');
+        //}
     
     else:
         header('Location:sesion_error.html');    

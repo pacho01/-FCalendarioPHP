@@ -14,7 +14,7 @@
 
             <?php
             function rellamada(){
-                
+
             }
             session_start();
             require("functions/conexion.php");
@@ -36,9 +36,13 @@
             if(mysqli_num_rows($result)>0):
 
                 echo "
-                <P><label for='userview'>Sel USER $userid :</label> 
-                <select formaction='adminpanel.php' formmetod='post' onchange = this.form.submit() class='ficha_bordes' name='userview'>
-                ";
+                <P><label for='userview'>Selecciona USER:</label> 
+                <select formaction='adminpanel.php' formmetod='post' onchange = this.form.submit() class='ficha_bordes' name='userview' ";
+                $activar_seleccion_usuario="disabled";
+                if ($admin){
+                    $activar_seleccion_usuario="";
+                }
+                echo $activar_seleccion_usuario . ">";
 
                 while($row = $result->fetch_assoc())
                 {
@@ -46,7 +50,7 @@
                     //$menu_admin=$row['admin'];
                     $menu_userid=$row['user_id'];
                     $_elemento_seleccionado="";
-                    if($userid == $menu_userid){
+                    if($userview == $menu_userid){
                         $_elemento_seleccionado='selected';
                         $nombre_usuario=$menu_nombre;
                         $numero_usuario=$row['numero'];
