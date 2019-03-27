@@ -69,8 +69,8 @@
         
 
             ?>
-            <p><label for='nombrecito'>Nombre USUARIO: </label><input class='ficha_bordes' type="text" name="nombrecito" placeholder= <?php echo $nombre_usuario ?> ></p>
-            <p><label for='numero'>Numero empleado: </label><input class='ficha_bordes' type="text" name="numero" placeholder= <?php echo $nombre_usuario ?> ></p>
+            <p><label for='txt_nombe'>Nombre USUARIO: </label><input class='ficha_bordes' type="text" name="txt_nombe" placeholder='Nombre' value=<?php echo $nombre_usuario ?> ></p>
+            <p><label for='txt_numero_usr'>Numero empleado: </label><input class='ficha_bordes' type="text" name="txt_numero_usr" placeholder='Numero Usuario' value=<?php echo $nombre_usuario ?> ></p>
             <p><input type="submit" formaction="calendario.php" value="Ver Calendario"> </p>
             <p><input type="submit" formaction="adminpanel.php" formmetod="post" value="Actualizar"> </p>
             
