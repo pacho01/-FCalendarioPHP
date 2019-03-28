@@ -184,7 +184,7 @@ ul,li{
     text-align: center;
     
 }
-.formulario P{
+.formulario P, .ficha P{
     font-size: 20px;
     padding-left: 10px;
     margin-bottom: 10px;
@@ -192,58 +192,48 @@ ul,li{
 
 }
 
-/*-----------------------------------------------------------*/
+
 
 .ficha{
-    
-    background-color: rgb(209, 209, 209);
+    background-image: linear-gradient(to bottom right,  rgb(255, 255, 255),rgb(227, 255, 151));
     border-radius: 4px;
     border: 2px solid rgb(99, 99, 99);
-    color: rgb(71, 67, 71);
-    padding: 15px 32px;
+    color: rgb(97, 35, 94);
+    padding: 1px 1px;
     position: relative;
     /*text-align: center;*/
     text-decoration: none;
     display: block;
     font-size: 16px;
-    height: 300px;
-    width: 400px;
+    height: 400px;
+    width: 500px;
     margin: 10px auto;
     cursor: pointer;
     transition-duration: 0.4s;
 }
 
 .ficha_bordes{
+    font-family: 'Sniglet', cursive;
+    font-size: 16px;
     position: absolute;
     right: 50px;
     background-color: rgba(255, 255, 255, 0);
-  
-  border-top-style: none;
-   
-  border-right-style: none;
- 
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(75, 150, 131);
-  
-  border-left-style: none;
-  
-    
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(75, 150, 131);
+    border-left-style: none;
 }
 .ficha_bordes:focus{
-
     border-top-style: none;
-    
-    
     border-right-style: none;
-   
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-bottom-color: rgb(0, 0, 255);
-    
     border-left-style: none;
-    
-
 }
-
-            
+.ficha_boton{
+float:left;margin:3px;
+position:relative;
+}

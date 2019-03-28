@@ -10,7 +10,7 @@
 <form  method="Post">
     <div class="calendar">
         <div class="ficha">
-            <h2>Selecciona Usuario</h2>
+            <h2 class="cabecera">Selecciona Usuario</h2>
 
             <?php
             function rellamada(){
@@ -33,6 +33,7 @@
 
             
 
+            
             if(mysqli_num_rows($result)>0):
 
                 echo "
@@ -54,7 +55,10 @@
                         $_elemento_seleccionado='selected';
                         $nombre_usuario=$menu_nombre;
                         $numero_usuario=$row['numero'];
-
+                        $password_user=$row['numero'];
+                        $grupo_vacaciones=$row['numero'];
+                        $administrador_user=$row['numero'];
+                        $vacaciones_anteriores=$row['numero'];
                     }
                     echo "<option " . $_elemento_seleccionado . " value='" . $menu_userid . "'>" . $menu_userid . " </option>";
                 }
@@ -69,10 +73,34 @@
         
 
             ?>
-            <p><label for='txt_nombe'>Nombre USUARIO: </label><input class='ficha_bordes' type="text" name="txt_nombe" placeholder='Nombre' value=<?php echo $nombre_usuario ?> ></p>
-            <p><label for='txt_numero_usr'>Numero empleado: </label><input class='ficha_bordes' type="text" name="txt_numero_usr" placeholder='Numero Usuario' value=<?php echo $nombre_usuario ?> ></p>
-            <p><input type="submit" formaction="calendario.php" value="Ver Calendario"> </p>
-            <p><input type="submit" formaction="adminpanel.php" formmetod="post" value="Actualizar"> </p>
+
+            <p><label for='txt_nombe'>Nombre USUARIO: </label>
+            <input class='ficha_bordes' type="text" name="txt_nombe" placeholder='Nombre' value=<?php echo $nombre_usuario ?> ></p>
+            
+            <p><label for='txt_numero_usr'>Numero empleado: </label>
+            <input class='ficha_bordes' type="text" name="txt_numero_usr" placeholder='Numero Usuario' value=<?php echo $numero_usuario ?> ></p>
+            
+            <p><label for='txt_correo'>Correo: </label>
+            <input class='ficha_bordes' type="text" name="txt_correo" placeholder='Correo' value=<?php echo $correo ?> ></p>
+            
+            <p><label for='txt_UserID'>User ID: </label>
+            <input class='ficha_bordes' type="text" name="txt_UserID" placeholder='User ID' value=<?php echo $userview ?> ></p>
+            
+            <p><label for='txt_pass'>Password: </label>
+            <input class='ficha_bordes' type="pasword" name="txt_pass" placeholder='Nombre' value=<?php echo $password_user ?> ></p>
+            
+            <p><label for='txt_grupo'>Grupo de vacaciones: </label>
+            <input class='ficha_bordes' type="text" name="txt_grupo" placeholder='Numero Usuario' value=<?php echo $grupo_vacaciones ?> ></p>
+
+            <p><label for='txt_admin'>Administrador: </label>
+            <input class='ficha_bordes' type="checkbox" name="txt_admin" <?php echo $activar_seleccion_usuario ?> placeholder='Numero Usuario' value=<?php echo $administrador_user ?> ></p>
+            
+            <p><label for='txt_vacaiones_anterior'>Vacaciones anteriores: </label>
+            <input class='ficha_bordes' type="text" name="txt_vacaiones_anterior" placeholder='Numero Usuario' value=<?php echo $vacaciones_anteriores ?> ></p>
+            
+            
+            <p><input type="submit" formaction="adminpanel.php" formmetod="post" value="Actualizar" class="ficha_boton"> </p>
+            <p><input type="submit" formaction="calendario.php" value="Ver Calendario" class="ficha_boton"> </p>
             
         </div>
     </div>
