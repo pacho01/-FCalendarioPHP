@@ -184,7 +184,7 @@ ul,li{
     text-align: center;
     
 }
-.formulario P, .ficha P{
+.formulario P{
     font-size: 20px;
     padding-left: 10px;
     margin-bottom: 10px;
@@ -211,6 +211,12 @@ ul,li{
     cursor: pointer;
     transition-duration: 0.4s;
 }
+.ficha P{
+    font-family: 'Sniglet', cursive;
+    font-size: 20px;
+    
+    margin: 3px 0 3px 15px;
+}
 
 .ficha_bordes{
     font-family: 'Sniglet', cursive;
@@ -234,6 +240,7 @@ ul,li{
     border-left-style: none;
 }
 .ficha_boton{
-float:left;margin:3px;
+float:left;
+margin:3px;
 position:relative;
 }

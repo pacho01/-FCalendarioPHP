@@ -13,9 +13,7 @@
             <h2 class="cabecera">Selecciona Usuario</h2>
 
             <?php
-            function rellamada(){
-
-            }
+            
             session_start();
             require("functions/conexion.php");
             require("functions/funciones.php");
@@ -38,7 +36,7 @@
 
                 echo "
                 <P><label for='userview'>Selecciona USER:</label> 
-                <select formaction='adminpanel.php' formmetod='post' onchange = this.form.submit() class='ficha_bordes' name='userview' ";
+                <select formaction='' formmetod='post' onchange = this.form.submit() class='ficha_bordes' name='userview' ";
                 $activar_seleccion_usuario="disabled";
                 if ($admin){
                     $activar_seleccion_usuario="";
@@ -55,10 +53,11 @@
                         $_elemento_seleccionado='selected';
                         $nombre_usuario=$menu_nombre;
                         $numero_usuario=$row['numero'];
-                        $password_user=$row['numero'];
-                        $grupo_vacaciones=$row['numero'];
-                        $administrador_user=$row['numero'];
-                        $vacaciones_anteriores=$row['numero'];
+                        $correo=$row['correo'];
+                        $password_user=$row['pass'];
+                        $grupo_vacaciones=$row['grupo_vacaciones'];
+                        $administrador_user=$row['admin'];
+                        $vacaciones_anteriores=$row['vac_año_ant'];
                     }
                     echo "<option " . $_elemento_seleccionado . " value='" . $menu_userid . "'>" . $menu_userid . " </option>";
                 }
@@ -66,7 +65,7 @@
                 </select></P>";
 
             endif;
-
+            $mysqli->close();
             
                 # code...
             
@@ -93,14 +92,15 @@
             <input class='ficha_bordes' type="text" name="txt_grupo" placeholder='Numero Usuario' value=<?php echo $grupo_vacaciones ?> ></p>
 
             <p><label for='txt_admin'>Administrador: </label>
-            <input class='ficha_bordes' type="checkbox" name="txt_admin" <?php echo $activar_seleccion_usuario ?> placeholder='Numero Usuario' value=<?php echo $administrador_user ?> ></p>
+            <input class='ficha_bordes' type="checkbox" name="txt_admin" <?php echo $activar_seleccion_usuario ?>  value=<?php echo $administrador_user . " "; if ($administrador_user): echo "checked "; endif;?> ></p>
             
             <p><label for='txt_vacaiones_anterior'>Vacaciones anteriores: </label>
             <input class='ficha_bordes' type="text" name="txt_vacaiones_anterior" placeholder='Numero Usuario' value=<?php echo $vacaciones_anteriores ?> ></p>
             
             
-            <p><input type="submit" formaction="adminpanel.php" formmetod="post" value="Actualizar" class="ficha_boton"> </p>
-            <p><input type="submit" formaction="calendario.php" value="Ver Calendario" class="ficha_boton"> </p>
+            <input type="submit" formaction="cambio_dato.php" formmetod="post" name="actualizar" value="Actualizar" class="ficha_boton">
+            <input type="submit" formaction="cambio_dato.php" formmetod="post" name="cancelar" value="Cancelar" class="ficha_boton">
+            <input type="submit" formaction="calendario.php" value="Calendario" class="ficha_boton">
             
         </div>
     </div>

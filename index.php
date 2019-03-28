@@ -29,11 +29,13 @@ if($_POST): //inspeccionamos si nos mandan datos desde donde se na ha llamado
         //}
     
     else:
+        $mysqli->close();
         header('Location:sesion_error.html');    
     endif;
 
 else:   //Si no existen datos abrimos la pagina de inicio de sesion.
     //echo file_get_contents('start_sesion.html');
+    
     header('Location:start_sesion.html');
 endif;
 ?>
