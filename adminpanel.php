@@ -51,7 +51,7 @@
                     $_elemento_seleccionado="";
                     if($userview == $menu_userid){
                         $_elemento_seleccionado='selected';
-                        $nombre_usuario=$menu_nombre;
+                        $nombre_usuario=$row['nombre'];
                         $numero_usuario=$row['numero'];
                         $correo=$row['correo'];
                         $password_user=$row['pass'];
