@@ -1,20 +1,23 @@
 <?php
 
-
+$id=$_POST['int_id'];
+echo $id . "<br>";
 $userid=$_POST['txt_UserID'];
+echo $userid . "<br>";
 $nombreuser=$_POST['txt_nombe'];
+echo $nombreuser . "<br>";
 
-echo $nombreuser . "</br>";
 
 
-require("functions/conexion.php");
+
+
 /*$result = $mysqli->query("UPDATE usuarios SET nombre='$nombreuser' WHERE user_id='$userid'");*/
 
 
 
-$sql = "UPDATE usuarios SET nombre = '$nombreuser' WHERE user_id = '$userid'";
+$sql = "UPDATE usuarios SET nombre = '$nombreuser' WHERE id = '$id'";
 echo "Ejecuta consulta: " . $sql . "</br>";
-
+require("functions/conexion.php");
 if ($mysqli->query($sql) === TRUE) {
     echo "Record updated successfully";
 } else {
@@ -22,7 +25,7 @@ if ($mysqli->query($sql) === TRUE) {
 }
 /*$result = $mysqli->query("SELECT  nombre, admin FROM usuarios WHERE user_id = '$userid' AND pass = '$pass'" );*/
 /*header('Location:adminpanel.php');*/
-$mysqli->close();
+require("functions/close_conexion.php");
 
 
 ?>
