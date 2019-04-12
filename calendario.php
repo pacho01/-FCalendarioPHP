@@ -10,11 +10,22 @@
     <div class="calendar">
     <?php
         session_start();
-        $userid = $_SESSION['user_select'];
+        //$_SESSION['user_sesion_id']=$id;
+        //$_SESSION['user_sesion_userid']=$userid;
+        //$_SESSION['user_sesion_admin']=$bol_admin;
+        //$_SESSION['user_sesion_select_id']=$id;
+
+
+
+        $userid = $_SESSION['user_sesion_userid'];
+        
+        $id = $_SESSION['user_sesion_id'];
+        
+        $select_id = $_SESSION['user_sesion_select_id'];
         
         require("functions/conexion.php");
         
-        $result=$mysqli->query("SELECT * FROM usuarios WHERE user_id = '$userid'");
+        $result=$mysqli->query("SELECT * FROM usuarios WHERE id = '$select_id'");
 
         while($row = $result->fetch_assoc())
         {
