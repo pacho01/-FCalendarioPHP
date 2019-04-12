@@ -33,8 +33,7 @@
             <h2 class="cabecera">Selecciona Usuario</h2>
             
             <?PHP        
-            //if(mysqli_num_rows($result)>0):
-
+            
             echo "
             <P><label for='user_selected_id'>Selecciona USER:</label> 
             <select formaction='' formmetod='post' onchange = this.form.submit() class='ficha_bordes' name='user_select_id' ";
@@ -44,7 +43,8 @@
                 $activar_seleccion_usuario="";
             }
             echo $activar_seleccion_usuario . ">";
-
+            
+            // hacemos barrido por todos los usuarios para rellenar la lista el menu de seleccion
             while($row = $result->fetch_assoc())
             {
                 $menu_nombre = $row['nombre'];
@@ -52,6 +52,9 @@
                 $menu_userid=$row['user_id'];
                 $menu_id=$row['id'];
                 $_elemento_seleccionado="";
+
+                //Si el id de usuario que estamos leyendo de la tabla coincide con el seleccionado
+                // cargamos sus datos en variables para luego mostrarlos en el formulario
                 if($user_selected_id == $menu_id){
                     $_elemento_seleccionado='selected';
                     $nombre_usuario=$row['nombre'];
@@ -68,7 +71,7 @@
             echo "
             </select></P>";
 
-            //endif;
+            // Creamos el formulario, el campo de id es oculto.
             ?>
             <input type="hidden" name="int_id" value=<?php echo $user_selected_id ?> >
             <p><label for='txt_nombe'>Nombre USUARIO: </label>
@@ -90,14 +93,17 @@
             <input class='ficha_bordes' type="text" name="txt_grupo" placeholder='Numero Usuario' value="<?php echo $grupo_vacaciones ?>" ></p>
 
             <p><label for='txt_admin'>Administrador: </label>
+            <<-- <input class='ficha_bordes' type="checkbox" name="txt_admin" <?php echo $activar_seleccion_usuario ?>  value="<?php echo $administrador_user . ' '; if ($administrador_user): echo 'checked '; endif;?>" ></p>-->>
             <input class='ficha_bordes' type="checkbox" name="txt_admin" <?php echo $activar_seleccion_usuario ?>  value="<?php echo $administrador_user . ' '; if ($administrador_user): echo 'checked '; endif;?>" ></p>
             
+            <?php echo $administrador_user . ' '; if ($administrador_user): echo 'checked '; endif;?>
+
             <p><label for='txt_vacaiones_anterior'>Vacaciones anteriores: </label>
             <input class='ficha_bordes' type="text" name="txt_vacaiones_anterior" placeholder='Numero Usuario' value="<?php echo $vacaciones_anteriores ?>" ></p>
             
-            
+            //Botones
             <input type="submit" formaction="cambio_dato.php" formmetod="post" name="actualizar" value="Actualizar" class="ficha_boton">
-            <input type="submit" formaction="cambio_dato.php" formmetod="post" name="cancelar" value="Cancelar" class="ficha_boton">
+            <input type="submit" formaction="" formmetod="post" name="cancelar" value="Cancelar" class="ficha_boton">
             <input type="submit" formaction="calendario.php" value="Calendario" class="ficha_boton">
             
         </div>
